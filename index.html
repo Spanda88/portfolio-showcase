@@ -1,0 +1,696 @@
+<!-- Building out a portfolio website as you go through the lessons -->
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Viewport helps page stay dynamic so it fits every screen -->
+    <meta name="viewport" content="width=device-width" />
+    <title>SP's Portfolio Draft 1</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="mediaqueries.css" /> -->
+
+    <!-- Part 1) Navigation Menu: Home, projects, skills, contact. <title>Navigation Menu Example</title> -->
+    <!-- Nav menu style -->
+    <style>
+      .nav-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #a7b0f0; /* Dark background */
+        overflow: hidden;
+      }
+
+      .nav-item {
+        float: left; /* Horizontal items */
+      }
+
+      .nav-link {
+        display: block;
+        color: white;
+        font-size: 22px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      .nav-link:hover {
+        background-color: hsl(291, 100%, 89%); /* Gray on hover */
+        color: rgb(228, 128, 241);
+      }
+
+      /* Responsive Styles (for smaller screens) */
+      @media screen and (max-width: 768px) {
+        .nav-item {
+          float: none;
+          display: block; /* Stack items vertically */
+        }
+
+        .profile-pic {
+          max-width: 80%; /* Reduce size for smaller screens */
+        }
+      }
+    </style>
+  </head>
+
+  <!-- Homepage / landing page body including the nav menu -->
+  <body>
+    <div class="logo">Welcome to my first Portfolio made from scratch!</div>
+
+    <!--  <h2>Welcome to my first Portfolio made from Scratch!</h2>
+    <img src="images/image3.jpg" width="300" height="300" /> -->
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#experience">Skills</a></li>
+      <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Creating individual sections -->
+    <section id="profile">
+      <div class="section__pic-container">
+        <img
+          src="./Images/assets/prof profile pic.jpeg"
+          alt="Shefali Pandare profile picture"
+          class="profile-pic"
+        />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Shefali Pandare</h1>
+        <p class="section__text__p2">Full-stack Developer Enthusiast</p>
+        <!-- Figure out later how to change h4 to not be bolded -->
+        <h4>Explore my portfolio that I built using my coding talents to showcase my experience / skills below: </h4><br>
+
+        <!-- Resume link button - opens pdf in new tab -->
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./Images/assets/Shefali Pandare Updated Resume 2025.pdf')"
+          >
+            Download CV
+          </button>
+
+          <!-- 2nd button to go to Projects - can't get hover color change to work -->
+          <button
+            class="btn btn-color-3"
+            style="background-color: rgb(88, 86, 86); color: white;"
+            onclick="location.href='#projects'"
+          >
+            View My Projects
+          </button>
+
+          <!-- 3rd button to go to Contacts -->
+            <button
+            class="btn btn-color-1"
+            onclick="location.href='#contact'"
+            >
+            Get in Touch
+            </button>
+        </div>
+
+        <!-- Social Media Links that pop open in a new window-->
+        <div id="socials-container">
+          <img src="./Images/assets/linkedin.png" alt="My LinkedIn profile" 
+                    class="icon" onclick="window.open('https://www.linkedin.com/in/shefali-pandare/')">
+
+        <img src="./Images/assets/github.png" alt="My Github profile" 
+          class="icon" onclick="window.open('https://github.com/Spanda88')"
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section__about-container">
+        <div class="section__pic-container">
+          <img src="./Images/assets/about-pic.png" alt="Profile picture" class="about-pic" 
+          style="display: flex;
+                 max-width: 600px;
+                 max-height: 500px;
+                 min-width: auto;
+                 min-height: auto;
+                 height: 25%;
+                 width: 45%;
+                 position: absolute; top: 2rem; left: -4rem;
+                 "/>
+
+    <!-- Content Carousel <h4>Content Carousel</h4> -->
+
+<div class="carousel-container">
+  <div class="carousel-slide fade">
+    <img src="./Images/image1.jpg" alt="Image 1" 
+    style="position: absolute; top: 10rem; left: -4rem;"/>
+  </div>
+
+  <div class="carousel-slide fade">
+    <img src="./Images/image2.jpg" alt="Image 2" />
+  </div>
+
+  <div class="carousel-slide fade">
+    <img src="./Images/image3.jpg" alt="Image 3" />
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .carousel-slide {
+    display: none;
+  }
+
+  .carousel-slide:first-child {
+    display: block;
+  }
+
+  .carousel-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 5px;
+    user-select: none;
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+  .dot-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: black;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var slides = document.getElementsByClassName("carousel-slide");
+      var dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    window.plusSlides = plusSlides;
+    window.currentSlide = currentSlide;
+  });
+</script>
+
+        </div>
+
+<!-- below about image can have carousel of images showing hobbies -->
+
+        <div class="about-details-container">
+          <div class="about-containers">
+        <div class="details-container">
+          <img src="./Images/assets/experience.png" alt="Experience icon" class="icon"/>
+          <h3>Experience</h3>
+          <p>2+ Years <br />Frontend Development</p>
+        </div>
+
+        <div class="details-container">
+          <img src="./Images/assets/education.png" alt="Education icon" class="icon"/>
+          <h3>Education</h3>
+          <p>Bachelors of Engineering (B.E.)<br />Industrial & Systems Engineering</p>
+        </div>
+          </div>
+          <div class="text-container">
+        <p> Hey there! </p>
+
+        <p>I’m a curious problem-solver with a knack for turning big ideas into streamlined realities. With both a technical and business background I’ve enjoyed translating complex challenges into actionable solutions. </p>
+
+<p>Prior to consulting, I graduated with a <strong>B.E. in Industrial and Systems Engineering</strong>. During my academic years I was able to explore multiple potential paths such as operations management, 3D printing, and programming in various languages.  Earning my Lean Six Sigma Green Belt inspired me to pursue consulting.</p>
+
+<p>With <strong> 4 YOE as a Management Consultant at a Big 4 firm</strong>, I have developed a strong skill set encompassing product management, project management, and customer experience. I’ve enjoyed bridging business and technical teams, streamlining workflows, and driving customer success—all of which fuel my passion for creating efficient, lean processes.</p>
+
+<p>I am currently enrolled in <strong>Carnegie Mellon’s Full-Stack Coding Bootcamp</strong>, focused on mastering multiple coding languages (MERN stack) and building a robust portfolio. The program includes hands-on projects, a capstone, and on-campus interactions with CMU professors to deepen my understanding of development and career possibilities.</p>
+
+<p>I’m excited to start a new chapter where I can leverage my adaptable and versatile skill set. By utilizing a foundation of humility, resilience, and dedication I am able to tackle every challenge with an open mind and a creative perspective. Whether it’s embracing change, learning quickly, or simply getting things done, I’m ready to dive in and make a meaningful impact. </p>
+
+Let’s connect and create something amazing together!</p>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .section__about-container {
+          display: flex;
+          align-items: center;
+          gap: 20px; /* Adjust spacing between image and details */
+        }
+
+        .section__pic-container {
+          flex: 1;
+        }
+
+        .about-details-container {
+          flex: 2;
+        }
+
+        .about-pic {
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px; /* Optional styling */
+        }
+      </style>
+      
+      <img src="./Images/assets/arrow.png" 
+      alt="Arrow icon" 
+      class="icon arrow" 
+      onclick="location.href='./#experience'" />
+
+    </section>
+
+    <!-- Call it Skills for the assignment but interchangeable with Experience for now
+         - later add new section for past Experience -->
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <!-- In future can separate into Front end and Back end-->
+            <h2 class="experience-sub-title">Programming Languages</h2>
+            <div class="article-container">
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Novice</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- In future can separate into Front end and Back end:
+          <div class="details-container">
+            <h2 class="experience-sub-title">Soft Skills</h2>
+            <div class="article-container">
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+
+              <article>
+                <img src="./Images/assets/checkmark.png" alt="Experience icon" class="icon"/>
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Novice</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+-->
+        </div>
+        <!-- Missing arrow in skills section -->
+        <img src="./Images/assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+        <!-- Project 1 -->
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Images/assets/project-1.png" alt="Project 1" class="project-img"/>
+          </div>
+          <h2 class="experience-sub-title project-title">Project 1</h2>
+          <div class="project-btn-container">
+            <!-- Replace later with particular github reps per project -->
+            <button class="btn btn-color-2 project-btn" 
+            onclick="window.open('https://github.com/Spanda88/Spanda88')">
+            Github
+            </button>
+
+            <!-- Update View Details button links -->
+            <!-- <button class="btn btn-color-2 project-btn" 
+            onclick="openModal('modal1')">
+            View Details -->
+
+            <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+      </head>
+      <body>
+        <button
+          type="button"
+          class="btn btn-color-2 project-btn"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          View Details
+        </button>
+
+        <div
+          class="modal fade"
+          id="myModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Background</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Project details goes here.</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-color-2 project-btn"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </button>
+
+          <!-- Update link later to live demo -->
+              <button class="btn btn-color-2 project-btn" 
+              onclick="window.open('https://github.com/Spanda88/Spanda88')">
+                Live Demo
+              </button>
+          </div>
+        </div>
+
+        <!-- Project 2 with break -->
+        <br>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Images/assets/project-2.png" alt="Project 2" class="project-img"/>
+          </div>
+          <h2 class="experience-sub-title project-title">Project 2</h2>
+          <div class="project-btn-container">
+            <!-- Replace later with particular github reps per project -->
+            <button class="btn btn-color-2 project-btn" 
+            onclick="window.open('https://github.com/Spanda88/Spanda88')">
+            Github
+            </button>
+
+            <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+      </head>
+      <body>
+        <button
+          type="button"
+          class="btn btn-color-2 project-btn"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          View Details
+        </button>
+
+        <div
+          class="modal fade"
+          id="myModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Background</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Project details goes here.</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-color-2 project-btn"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </button>
+
+            <!-- Update link later to live demo -->
+            <button class="btn btn-color-2 project-btn" 
+            onclick="window.open('https://github.com/Spanda88/Spanda88')">
+            Live Demo
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Project 3 with break -->
+        <br>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <img src="./Images/assets/project-3.png" alt="Project 3" class="project-img"/>
+          </div>
+          <h2 class="experience-sub-title project-title">Project 3</h2>
+          <div class="project-btn-container">
+            <!-- Replace later with particular github reps per project -->
+            <button class="btn btn-color-2 project-btn" 
+            onclick="window.open('https://github.com/Spanda88/Spanda88')">
+            Github
+            </button>
+
+            <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+      </head>
+      <body>
+        <button
+          type="button"
+          class="btn btn-color-2 project-btn"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          View Details
+        </button>
+
+        <div
+          class="modal fade"
+          id="myModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Background</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Project details goes here.</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-color-2 project-btn"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </button>
+
+            <!-- Update link later to live demo -->
+            <button class="btn btn-color-2 project-btn" 
+            onclick="window.open('https://github.com/Spanda88/Spanda88')">
+            Live Demo
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <img src="./Images/assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
+
+    <section id="contact">
+      <p class="section__text__p1">Get In Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img src="./Images/assets/email.png" alt="Email icon" class="icon contact-icon email-icon"/>
+          <!-- Opens the viewer's local email w/ your email prepopulated into a draft -->
+            <p><a href="mailto:shefalipandare@gmail.com">Shefalipandare@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img src="./Images/assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon"/>
+           <p><a onclick="window.open('https://www.linkedin.com/in/shefali-pandare/')">LinkedIn</a></p>
+        </div>
+      </div>
+      
+
+    </section>
+
+    <footer>
+      <p>Copyright &#169; 2025 Shefali Pandare. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Trying out different headers / paragraphs on the homepage 
+    <h3>You come here often? (;</h3>
+    <h4>
+      What to do if you find yourself traversing through the 7 - 9 circles of
+      hell:
+    </h4>
+    <p>Similar to life on Earth, you try your best to just get by.</p>
+    <p>What if it gets too confusing? Simply - Flop.</p>
+    -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
